@@ -2,9 +2,9 @@
 #ifndef __ADDINNATIVE_H__
 #define __ADDINNATIVE_H__
 
-#include "../../include/ComponentBase.h"
-#include "../../include/AddInDefBase.h"
-#include "../../include/IMemoryManager.h"
+#include "include/ComponentBase.h"
+#include "include/AddInDefBase.h"
+#include "include/IMemoryManager.h"
 #include "StepCounter.h"
 
 #if defined(__APPLE__) && !defined(BUILD_DYNAMIC_LIBRARY)

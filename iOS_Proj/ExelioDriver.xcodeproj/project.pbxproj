@@ -8,23 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		1F2D60A31C1AB65C00B333C3 /* libSystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2D60A21C1AB65C00B333C3 /* libSystem.dylib */; };
+		1FE2DA4E1BFDD766001EE409 /* StepCounter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2DA4D1BFDD766001EE409 /* StepCounter.mm */; };
+		1FE2DA501BFDD76C001EE409 /* AddInNative.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2DA4F1BFDD76C001EE409 /* AddInNative.cpp */; };
 		1FED32171BFE22D40067695E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FED32161BFE22D40067695E /* CoreMotion.framework */; };
-		8238762B1F1D231600E2B260 /* AddInNative.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 823876251F1D231600E2B260 /* AddInNative.cpp */; };
-		8238762C1F1D231600E2B260 /* ConversionWchar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 823876271F1D231600E2B260 /* ConversionWchar.cpp */; };
-		8238762D1F1D231600E2B260 /* StepCounter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8238762A1F1D231600E2B260 /* StepCounter.mm */; };
+		1FED365F1C0862920067695E /* ConversionWchar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FED365D1C0862920067695E /* ConversionWchar.cpp */; };
 		8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49A704867FD3000E48DA /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F2D60A21C1AB65C00B333C3 /* libSystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSystem.dylib; path = usr/lib/libSystem.dylib; sourceTree = SDKROOT; };
+		1FE2DA4C1BFDD766001EE409 /* StepCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepCounter.h; path = ../StepCounter.h; sourceTree = "<group>"; };
+		1FE2DA4D1BFDD766001EE409 /* StepCounter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = StepCounter.mm; path = ../StepCounter.mm; sourceTree = "<group>"; };
+		1FE2DA4F1BFDD76C001EE409 /* AddInNative.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddInNative.cpp; path = ../AddInNative.cpp; sourceTree = "<group>"; };
+		1FE2DA511BFDD771001EE409 /* AddInNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddInNative.h; path = ../AddInNative.h; sourceTree = "<group>"; };
 		1FED32161BFE22D40067695E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		823876251F1D231600E2B260 /* AddInNative.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AddInNative.cpp; sourceTree = "<group>"; };
-		823876261F1D231600E2B260 /* AddInNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddInNative.h; sourceTree = "<group>"; };
-		823876271F1D231600E2B260 /* ConversionWchar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConversionWchar.cpp; sourceTree = "<group>"; };
-		823876281F1D231600E2B260 /* ConversionWchar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversionWchar.h; sourceTree = "<group>"; };
-		823876291F1D231600E2B260 /* StepCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepCounter.h; sourceTree = "<group>"; };
-		8238762A1F1D231600E2B260 /* StepCounter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StepCounter.mm; sourceTree = "<group>"; };
+		1FED365D1C0862920067695E /* ConversionWchar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConversionWchar.cpp; path = ../ConversionWchar.cpp; sourceTree = "<group>"; };
+		1FED365E1C0862920067695E /* ConversionWchar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConversionWchar.h; path = ../ConversionWchar.h; sourceTree = "<group>"; };
 		8D576316048677EA00EA77CD /* com_1c_StepCounter.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = com_1c_StepCounter.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,12 +74,12 @@
 		08FB77AFFE84173DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				823876251F1D231600E2B260 /* AddInNative.cpp */,
-				823876261F1D231600E2B260 /* AddInNative.h */,
-				823876271F1D231600E2B260 /* ConversionWchar.cpp */,
-				823876281F1D231600E2B260 /* ConversionWchar.h */,
-				823876291F1D231600E2B260 /* StepCounter.h */,
-				8238762A1F1D231600E2B260 /* StepCounter.mm */,
+				1FED365E1C0862920067695E /* ConversionWchar.h */,
+				1FED365D1C0862920067695E /* ConversionWchar.cpp */,
+				1FE2DA511BFDD771001EE409 /* AddInNative.h */,
+				1FE2DA4F1BFDD76C001EE409 /* AddInNative.cpp */,
+				1FE2DA4C1BFDD766001EE409 /* StepCounter.h */,
+				1FE2DA4D1BFDD766001EE409 /* StepCounter.mm */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -120,7 +120,7 @@
 			isa = PBXProject;
 			attributes = {
 			};
-			buildConfigurationList = 1DEB911E08733D790010E9CD /* Build configuration list for PBXProject "NativeAPI" */;
+			buildConfigurationList = 1DEB911E08733D790010E9CD /* Build configuration list for PBXProject "ExelioDriver" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -155,9 +155,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8238762B1F1D231600E2B260 /* AddInNative.cpp in Sources */,
-				8238762C1F1D231600E2B260 /* ConversionWchar.cpp in Sources */,
-				8238762D1F1D231600E2B260 /* StepCounter.mm in Sources */,
+				1FE2DA4E1BFDD766001EE409 /* StepCounter.mm in Sources */,
+				1FED365F1C0862920067695E /* ConversionWchar.cpp in Sources */,
+				1FE2DA501BFDD76C001EE409 /* AddInNative.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +269,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB911E08733D790010E9CD /* Build configuration list for PBXProject "NativeAPI" */ = {
+		1DEB911E08733D790010E9CD /* Build configuration list for PBXProject "ExelioDriver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB911F08733D790010E9CD /* Debug */,

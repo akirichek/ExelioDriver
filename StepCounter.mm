@@ -1,6 +1,6 @@
 ﻿
 #include "StepCounter.h"
-#include "../../include/AddInDefBase.h"
+#include "include/AddInDefBase.h"
 
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
