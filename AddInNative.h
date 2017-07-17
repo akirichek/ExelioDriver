@@ -9,7 +9,7 @@
 
 #if defined(__APPLE__) && !defined(BUILD_DYNAMIC_LIBRARY)
 
-namespace COM_1C_STEP_COUNTER
+namespace ExellioDriver
 {
 
 #endif //__APPLE__ && !BUILD_DYNAMIC_LIBRARY
