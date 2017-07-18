@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FE2DA4E1BFDD766001EE409 /* StepCounter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2DA4D1BFDD766001EE409 /* StepCounter.mm */; };
+		1FE2DA4E1BFDD766001EE409 /* ExellioDriver.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2DA4D1BFDD766001EE409 /* ExellioDriver.mm */; };
 		1FE2DA501BFDD76C001EE409 /* AddInNative.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2DA4F1BFDD76C001EE409 /* AddInNative.cpp */; };
 		1FED365F1C0862920067695E /* ConversionWchar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FED365D1C0862920067695E /* ConversionWchar.cpp */; };
 		8238763C1F1D2A3000E2B260 /* ExellioFiscalDriver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8238763B1F1D2A3000E2B260 /* ExellioFiscalDriver.framework */; };
@@ -16,8 +16,8 @@
 
 /* Begin PBXFileReference section */
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1FE2DA4C1BFDD766001EE409 /* StepCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepCounter.h; path = ../StepCounter.h; sourceTree = "<group>"; };
-		1FE2DA4D1BFDD766001EE409 /* StepCounter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = StepCounter.mm; path = ../StepCounter.mm; sourceTree = "<group>"; };
+		1FE2DA4C1BFDD766001EE409 /* ExellioDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExellioDriver.h; path = ../ExellioDriver.h; sourceTree = "<group>"; };
+		1FE2DA4D1BFDD766001EE409 /* ExellioDriver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ExellioDriver.mm; path = ../ExellioDriver.mm; sourceTree = "<group>"; };
 		1FE2DA4F1BFDD76C001EE409 /* AddInNative.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddInNative.cpp; path = ../AddInNative.cpp; sourceTree = "<group>"; };
 		1FE2DA511BFDD771001EE409 /* AddInNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddInNative.h; path = ../AddInNative.h; sourceTree = "<group>"; };
 		1FED365D1C0862920067695E /* ConversionWchar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConversionWchar.cpp; path = ../ConversionWchar.cpp; sourceTree = "<group>"; };
@@ -39,7 +39,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		089C166AFE841209C02AAC07 /* ExelioDriver */ = {
+		089C166AFE841209C02AAC07 /* ExellioDriver */ = {
 			isa = PBXGroup;
 			children = (
 				08FB77AFFE84173DC02AAC07 /* Source */,
@@ -47,7 +47,7 @@
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
 				19C28FB6FE9D52B211CA2CBB /* Products */,
 			);
-			name = ExelioDriver;
+			name = ExellioDriver;
 			sourceTree = "<group>";
 		};
 		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
@@ -74,8 +74,8 @@
 				1FED365D1C0862920067695E /* ConversionWchar.cpp */,
 				1FE2DA511BFDD771001EE409 /* AddInNative.h */,
 				1FE2DA4F1BFDD76C001EE409 /* AddInNative.cpp */,
-				1FE2DA4C1BFDD766001EE409 /* StepCounter.h */,
-				1FE2DA4D1BFDD766001EE409 /* StepCounter.mm */,
+				1FE2DA4C1BFDD766001EE409 /* ExellioDriver.h */,
+				1FE2DA4D1BFDD766001EE409 /* ExellioDriver.mm */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -105,7 +105,7 @@
 			);
 			name = ExellioDriver;
 			productInstallPath = "$(HOME)/Library/Bundles";
-			productName = ExelioDriver;
+			productName = ExellioDriver;
 			productReference = 8D576316048677EA00EA77CD /* com_1c_StepCounter.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
@@ -126,7 +126,7 @@
 				French,
 				German,
 			);
-			mainGroup = 089C166AFE841209C02AAC07 /* ExelioDriver */;
+			mainGroup = 089C166AFE841209C02AAC07 /* ExellioDriver */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -151,7 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FE2DA4E1BFDD766001EE409 /* StepCounter.mm in Sources */,
+				1FE2DA4E1BFDD766001EE409 /* ExellioDriver.mm in Sources */,
 				1FED365F1C0862920067695E /* ConversionWchar.cpp in Sources */,
 				1FE2DA501BFDD76C001EE409 /* AddInNative.cpp in Sources */,
 			);
@@ -191,7 +191,7 @@
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobiwolf.ExelioDriver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobiwolf.ExellioDriver;
 				PRODUCT_NAME = com_1c_StepCounter;
 				STRIP_STYLE = all;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -216,7 +216,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobiwolf.ExelioDriver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobiwolf.ExellioDriver;
 				PRODUCT_NAME = com_1c_StepCounter;
 				STRIP_STYLE = all;
 				TARGETED_DEVICE_FAMILY = "1,2";

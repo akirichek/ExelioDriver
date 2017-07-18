@@ -5,38 +5,35 @@
 #include "include/ComponentBase.h"
 #include "include/AddInDefBase.h"
 #include "include/IMemoryManager.h"
-#include "StepCounter.h"
+#include "ExellioDriver.h"
 
 #if defined(__APPLE__) && !defined(BUILD_DYNAMIC_LIBRARY)
 
-namespace ExellioDriver
+namespace EXELLIO_DRIVER
 {
 
 #endif //__APPLE__ && !BUILD_DYNAMIC_LIBRARY
 
 ///////////////////////////////////////////////////////////////////////////////
-class StepCounter : public IComponentBase
+class ExellioDriver : public IComponentBase
 {
 public:
     enum Props
     {
-        ePropIsEnabled = 0,
+        ePropIsConnected = 0,
         ePropLast      // Always last
     };
 
     enum Methods
     {
-        eMethEnable = 0,
-        eMethDisable,
-        eMethGetStepCount,
-        eMethGetMovementType,
-        eMethGetOrientation,
-        eMethShowOrientation,
+        eMethPrintXReport = 0,
+        eMethPrintZReport,
+        eMethPrintReceipt,
         eMethLast      // Always last
     };
 
-    StepCounter(void);
-    virtual ~StepCounter();
+    ExellioDriver(void);
+    virtual ~ExellioDriver();
     // IInitDoneBase
     virtual bool ADDIN_API Init(void*);
     virtual bool ADDIN_API setMemManager(void* mem);
@@ -74,8 +71,8 @@ private:
     
     IAddInDefBaseEx    *m_iConnect;
     IMemoryManager     *m_iMemory;
-    bool                isEnabled;
-    CStepCounter        stepCounter;
+    bool                isConnected;
+    CExellioDriver      exellioDriver;
 };
 
 #if defined(__APPLE__) && !defined(BUILD_DYNAMIC_LIBRARY)

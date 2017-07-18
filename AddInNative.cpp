@@ -12,38 +12,32 @@
 
 #if defined(__APPLE__) && !defined(BUILD_DYNAMIC_LIBRARY)
 
-namespace COM_1C_STEP_COUNTER
+namespace EXELLIO_DRIVER
 {
 
 #endif //__APPLE__ && !BUILD_DYNAMIC_LIBRARY
     
 static const wchar_t *g_PropNames[] =
-   {L"IsEnabled"};
+   {L"IsConnected"};
 
 static const wchar_t *g_MethodNames[] =
-   {L"Enable",
-    L"Disable",
-    L"GetStepCount",
-    L"GetMovementType",
-    L"GetOrientation",
-    L"ShowOrientation"};
+   {L"PrintXReport",
+    L"PrintZReport",
+    L"PrintReceipt"};
 
 static const wchar_t *g_PropNamesRu[] =
-   {L"Включен"};
+   {L"Подключен"};
 
 static const wchar_t *g_MethodNamesRu[] =
-    {L"Включить",
-     L"Выключить",
-     L"ПолучитьКоличествоШагов",
-     L"ПолучитьТипДвижения",
-     L"ПолучитьУгловоеПоложениеУстройства",
-     L"ПоказатьУгловоеПоложениеУстройства"};
+    {L"РаспечататьXОтчет",
+     L"РаспечататьZОтчет",
+     L"РаспечататьКвитанцию"};
 
-static const wchar_t g_ComponentNameType[] = L"com_1c_StepCounterExtension";
+static const wchar_t g_ComponentNameType[] = L"com_mobiwolf_ExellioDriverExtension";
     
 #if defined(__APPLE__) && !defined(BUILD_DYNAMIC_LIBRARY)
 
-static const char g_ComponentName[] = "com_1c_StepCounter";
+static const char g_ComponentName[] = "com_mobiwolf_ExellioDriver";
 
 #endif //__APPLE__ && !BUILD_DYNAMIC_LIBRARY
 
@@ -57,7 +51,7 @@ long GetClassObject(const WCHAR_T* wsName, IComponentBase** pInterface)
 {
     if(!*pInterface)
     {
-        *pInterface = new StepCounter;
+        *pInterface = new ExellioDriver;
         return (long)*pInterface;
     }
     return 0;
@@ -88,45 +82,45 @@ const WCHAR_T* GetClassNames()
 }
     
 //---------------------------------------------------------------------------//
-StepCounter::StepCounter() : m_iConnect(0), m_iMemory(0), isEnabled(false)
+ExellioDriver::ExellioDriver() : m_iConnect(0), m_iMemory(0), isConnected(false)
 {
 }
     
 //---------------------------------------------------------------------------//
-StepCounter::~StepCounter()
+ExellioDriver::~ExellioDriver()
 {
 }
     
 /////////////////////////////////////////////////////////////////////////////
 // IInitDoneBase
 //---------------------------------------------------------------------------//
-bool StepCounter::Init(void* pConnection)
+bool ExellioDriver::Init(void* pConnection)
 {
     m_iConnect = (IAddInDefBaseEx*)pConnection;
     if (m_iConnect)
     {
-        stepCounter.setIConnect(m_iConnect);
+        exellioDriver.setIConnect(m_iConnect);
         return true;
     }
     return false;
 }
 
 //---------------------------------------------------------------------------//
-bool StepCounter::setMemManager(void* mem)
+bool ExellioDriver::setMemManager(void* mem)
 {
     m_iMemory = (IMemoryManager*)mem;
     return m_iMemory != 0;
 }
     
 //---------------------------------------------------------------------------//
-long StepCounter::GetInfo()
+long ExellioDriver::GetInfo()
 { 
     // Component should put supported component technology version
     return g_VersionAddIn;
 }
     
 //---------------------------------------------------------------------------//
-void StepCounter::Done()
+void ExellioDriver::Done()
 {
     m_iConnect = NULL;
 }
@@ -134,7 +128,7 @@ void StepCounter::Done()
 /////////////////////////////////////////////////////////////////////////////
 // ILanguageExtenderBase
 //---------------------------------------------------------------------------//
-bool StepCounter::RegisterExtensionAs(WCHAR_T** wsExtensionName)
+bool ExellioDriver::RegisterExtensionAs(WCHAR_T** wsExtensionName)
 { 
     const wchar_t *wsExtension = g_ComponentNameType;
     uint32_t iActualSize = static_cast<uint32_t>(::wcslen(wsExtension) + 1);
@@ -152,14 +146,14 @@ bool StepCounter::RegisterExtensionAs(WCHAR_T** wsExtensionName)
 }
     
 //---------------------------------------------------------------------------//
-long StepCounter::GetNProps()
+long ExellioDriver::GetNProps()
 { 
     // You may delete next lines and add your own implementation code here
     return ePropLast;
 }
     
 //---------------------------------------------------------------------------//
-long StepCounter::FindProp(const WCHAR_T* wsPropName)
+long ExellioDriver::FindProp(const WCHAR_T* wsPropName)
 { 
     long plPropNum = -1;
     wchar_t* propName = 0;
@@ -176,7 +170,7 @@ long StepCounter::FindProp(const WCHAR_T* wsPropName)
 }
     
 //---------------------------------------------------------------------------//
-const WCHAR_T* StepCounter::GetPropName(long lPropNum, long lPropAlias)
+const WCHAR_T* ExellioDriver::GetPropName(long lPropNum, long lPropAlias)
 { 
     if (lPropNum >= ePropLast)
         return NULL;
@@ -208,14 +202,14 @@ const WCHAR_T* StepCounter::GetPropName(long lPropNum, long lPropAlias)
 }
     
 //---------------------------------------------------------------------------//
-bool StepCounter::GetPropVal(const long lPropNum, tVariant* pvarPropVal)
+bool ExellioDriver::GetPropVal(const long lPropNum, tVariant* pvarPropVal)
 { 
     switch(lPropNum)
     {
-        case ePropIsEnabled:
+        case ePropIsConnected:
         {
             TV_VT(pvarPropVal) = VTYPE_BOOL;
-            TV_BOOL(pvarPropVal) = isEnabled;
+            TV_BOOL(pvarPropVal) = isConnected;
             break;
         }
         default:
@@ -225,36 +219,36 @@ bool StepCounter::GetPropVal(const long lPropNum, tVariant* pvarPropVal)
 }
     
 //---------------------------------------------------------------------------//
-bool StepCounter::SetPropVal(const long lPropNum, tVariant *varPropVal)
+bool ExellioDriver::SetPropVal(const long lPropNum, tVariant *varPropVal)
 { 
     return true;
 }
     
 //---------------------------------------------------------------------------//
-bool StepCounter::IsPropReadable(const long lPropNum)
+bool ExellioDriver::IsPropReadable(const long lPropNum)
 { 
     switch(lPropNum)
     { 
-        case ePropIsEnabled:
+        case ePropIsConnected:
             return true;
     }
     return false;
 }
     
 //---------------------------------------------------------------------------//
-bool StepCounter::IsPropWritable(const long lPropNum)
+bool ExellioDriver::IsPropWritable(const long lPropNum)
 {
     return false;
 }
 
 //---------------------------------------------------------------------------//
-long StepCounter::GetNMethods()
+long ExellioDriver::GetNMethods()
 { 
     return eMethLast;
 }
     
 //---------------------------------------------------------------------------//
-long StepCounter::FindMethod(const WCHAR_T* wsMethodName)
+long ExellioDriver::FindMethod(const WCHAR_T* wsMethodName)
 { 
     long plMethodNum = -1;
     wchar_t* name = 0;
@@ -271,7 +265,7 @@ long StepCounter::FindMethod(const WCHAR_T* wsMethodName)
 }
     
 //---------------------------------------------------------------------------//
-const WCHAR_T* StepCounter::GetMethodName(const long lMethodNum, const long lMethodAlias)
+const WCHAR_T* ExellioDriver::GetMethodName(const long lMethodNum, const long lMethodAlias)
 { 
     if (lMethodNum >= eMethLast)
         return NULL;
@@ -303,18 +297,13 @@ const WCHAR_T* StepCounter::GetMethodName(const long lMethodNum, const long lMet
 }
     
 //---------------------------------------------------------------------------//
-long StepCounter::GetNParams(const long lMethodNum)
+long ExellioDriver::GetNParams(const long lMethodNum)
 { 
-    switch (lMethodNum)
-    { 
-        case eMethGetOrientation:
-            return 1;
-    }
     return 0;
 }
     
 //---------------------------------------------------------------------------//
-bool StepCounter::GetParamDefValue(const long lMethodNum, const long lParamNum,
+bool ExellioDriver::GetParamDefValue(const long lMethodNum, const long lParamNum,
                         tVariant *pvarParamDefValue)
 { 
     // There are no parameter values by default
@@ -322,132 +311,48 @@ bool StepCounter::GetParamDefValue(const long lMethodNum, const long lParamNum,
 
     switch (lMethodNum)
     {
-        case eMethEnable:
-        case eMethDisable:
-        case eMethGetStepCount:
-        case eMethGetMovementType:
-        case eMethShowOrientation:
+        case eMethPrintZReport:
+        case eMethPrintXReport:
+        case eMethPrintReceipt:
         {
             // No parameters
             return false;
         }
-        case eMethGetOrientation:
-            // Only first parameter
-            if (lParamNum == 0)
-                return true;
     }
     return false;
 }
     
 //---------------------------------------------------------------------------//
-bool StepCounter::HasRetVal(const long lMethodNum)
+bool ExellioDriver::HasRetVal(const long lMethodNum)
 {
-    switch (lMethodNum)
-    {
-        case eMethGetStepCount:
-        case eMethGetMovementType:
-        case eMethGetOrientation:
-            return true;
-            break;            
-        default:
-            return false;
-    }
     return false;
 }
     
 //---------------------------------------------------------------------------//
-bool StepCounter::CallAsProc(const long lMethodNum,
+bool ExellioDriver::CallAsProc(const long lMethodNum,
                     tVariant* paParams, const long lSizeArray)
 {
-    switch(lMethodNum)
-    {
-        case eMethEnable:
-        {
-            stepCounter.startStepCounterUpdatesFromDate();
-            isEnabled = true;
-            break;
-        }
-        case eMethDisable:
-        {
-            stepCounter.stopStepCounterUpdates();
-            isEnabled = false;
-            break;
-        }
-        case eMethShowOrientation:
-        {
-            if(eAppCapabilities1 <= g_capabilities)
-            {
-                IAddInDefBaseEx* cnn = (IAddInDefBaseEx*)m_iConnect;
-                IMsgBox* imsgbox = (IMsgBox*)cnn->GetInterface(eIMsgBox);
-                if (imsgbox)
-                {
-                    const uint16_t MAX_RESULT_STRING_LENGTH = 40;
-                    wchar_t buf[MAX_RESULT_STRING_LENGTH];
-                    memset(buf, 0, sizeof(wchar_t) * MAX_RESULT_STRING_LENGTH);
-                    
-                    swprintf(buf, MAX_RESULT_STRING_LENGTH - 1,
-                             L"XOZ:%5.3f XOY:%5.3f YOZ:%5.3f",
-                             stepCounter.orientation(eOrientXOZ),
-                             stepCounter.orientation(eOrientXOY),
-                             stepCounter.orientation(eOrientYOZ));
-                
-                    WCHAR_T *msg = 0;
-                    uint32_t iActualSize = static_cast<uint32_t>(wcslen(buf) + 1);
-                    convToShortWchar(&msg, buf, iActualSize);
-                    imsgbox->Alert(msg);
-                    delete [] msg;
-                }
-            }
-            break;
-        }
-    default:
-        return false;
-    }
-
-    return true;
+    return false;
 }
 
 //---------------------------------------------------------------------------//
-bool StepCounter::CallAsFunc(const long lMethodNum,
+bool ExellioDriver::CallAsFunc(const long lMethodNum,
                 tVariant* pvarRetValue, tVariant* paParams, const long lSizeArray)
 {
     switch(lMethodNum)
     {
-        case eMethGetStepCount:
-        case eMethGetMovementType:
-        {
-            // No parameters
-            if (lSizeArray || paParams)
-                return false;
-
-            TV_VT(pvarRetValue) = VTYPE_I4;
-            if (lMethodNum == eMethGetStepCount)
-                TV_I4(pvarRetValue) = static_cast<int32_t>(stepCounter.stepCount());
-            else
-                TV_I4(pvarRetValue) = static_cast<int32_t>(stepCounter.typeMotion());
+        case eMethPrintXReport:
+            exellioDriver.printXReport();
             return true;
             break;
-        }
-        case eMethGetOrientation:
-        {
-            // One parameter
-            if ((lSizeArray != 1) || !paParams)
-                return false;
- 
-            switch (paParams->lVal)
-            {
-                case 0:  // XOY
-                case 1:  // XOZ
-                case 2:  // YOZ
-                {
-                    TV_VT(pvarRetValue) = VTYPE_R8;
-                    TV_R8(pvarRetValue) = stepCounter.orientation(static_cast<Orientations>(paParams->lVal));
-                    return true;
-                    break;
-                }
-            }
+        case eMethPrintZReport:
+            exellioDriver.printZReport();
+            return true;
             break;
-        }
+        case eMethPrintReceipt:
+            exellioDriver.printReceipt();
+            return true;
+            break;
         default:
             return false;
     }
@@ -457,7 +362,7 @@ bool StepCounter::CallAsFunc(const long lMethodNum,
 /////////////////////////////////////////////////////////////////////////////
 // ILocaleBase
 //---------------------------------------------------------------------------//
-void StepCounter::SetLocale(const WCHAR_T* loc)
+void ExellioDriver::SetLocale(const WCHAR_T* loc)
 {
 }
 
@@ -465,7 +370,7 @@ void StepCounter::SetLocale(const WCHAR_T* loc)
 // Other
 
 //---------------------------------------------------------------------------//
-void StepCounter::addError(uint32_t wcode, const wchar_t* source,
+void ExellioDriver::addError(uint32_t wcode, const wchar_t* source,
                         const wchar_t* descriptor, long code)
 {
     if (m_iConnect)
@@ -484,18 +389,18 @@ void StepCounter::addError(uint32_t wcode, const wchar_t* source,
 }
     
 //---------------------------------------------------------------------------//
-bool StepCounter::sendMessageFromEvent(const wchar_t* textMsg)
+bool ExellioDriver::sendMessageFromEvent(const wchar_t* textMsg)
 {
     if (m_iConnect)
     {
-        m_iConnect->ExternalEvent(s_classNameStepCounter, s_eventChangeName, s_paramEvent);
+        m_iConnect->ExternalEvent(s_classNameExellioDriver, s_eventChangeName, s_paramEvent);
         return true;
     }
     return false;
 }
 
 //---------------------------------------------------------------------------//
-long StepCounter::findName(const wchar_t* names[], const wchar_t* name,
+long ExellioDriver::findName(const wchar_t* names[], const wchar_t* name,
                         const uint32_t size) const
 {
     long ret = -1;
@@ -515,7 +420,7 @@ long StepCounter::findName(const wchar_t* names[], const wchar_t* name,
 
 };
 
-namespace COM_1C_STEP_COUNTER
+namespace EXELLIO_DRIVER
 {
 
     static LPCVOID addin_exports[] =
