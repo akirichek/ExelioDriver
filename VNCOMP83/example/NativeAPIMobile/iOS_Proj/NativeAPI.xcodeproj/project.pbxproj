@@ -7,27 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FE2DA4E1BFDD766001EE409 /* StepCounter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2DA4D1BFDD766001EE409 /* StepCounter.mm */; };
 		1FE2DA501BFDD76C001EE409 /* AddInNative.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2DA4F1BFDD76C001EE409 /* AddInNative.cpp */; };
-		1FED32171BFE22D40067695E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FED32161BFE22D40067695E /* CoreMotion.framework */; };
 		1FED365F1C0862920067695E /* ConversionWchar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FED365D1C0862920067695E /* ConversionWchar.cpp */; };
+		8283901F1F2C905200AE0A5B /* ExellioDriver.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8283901E1F2C905200AE0A5B /* ExellioDriver.mm */; };
 		8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49A704867FD3000E48DA /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1FE2DA4C1BFDD766001EE409 /* StepCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepCounter.h; path = ../StepCounter.h; sourceTree = "<group>"; };
-		1FE2DA4D1BFDD766001EE409 /* StepCounter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = StepCounter.mm; path = ../StepCounter.mm; sourceTree = "<group>"; };
 		1FE2DA4F1BFDD76C001EE409 /* AddInNative.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddInNative.cpp; path = ../AddInNative.cpp; sourceTree = "<group>"; };
 		1FE2DA511BFDD771001EE409 /* AddInNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddInNative.h; path = ../AddInNative.h; sourceTree = "<group>"; };
-		1FED32161BFE22D40067695E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		1FED365D1C0862920067695E /* ConversionWchar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConversionWchar.cpp; path = ../ConversionWchar.cpp; sourceTree = "<group>"; };
 		1FED365E1C0862920067695E /* ConversionWchar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConversionWchar.h; path = ../ConversionWchar.h; sourceTree = "<group>"; };
-		823876A91F20AEBA00E2B260 /* NativeAPIDyLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeAPIDyLib.h; sourceTree = "<group>"; };
-		823876AA1F20AEBA00E2B260 /* NativeAPIDyLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeAPIDyLib.m; sourceTree = "<group>"; };
-		823876B61F20AEF600E2B260 /* NativeAPILib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeAPILib.h; sourceTree = "<group>"; };
-		823876B71F20AEF600E2B260 /* NativeAPILib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeAPILib.m; sourceTree = "<group>"; };
-		8D576316048677EA00EA77CD /* com_1c_StepCounter.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = com_1c_StepCounter.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		8283901D1F2C905200AE0A5B /* ExellioDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExellioDriver.h; path = ../ExellioDriver.h; sourceTree = "<group>"; };
+		8283901E1F2C905200AE0A5B /* ExellioDriver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ExellioDriver.mm; path = ../ExellioDriver.mm; sourceTree = "<group>"; };
+		8D576316048677EA00EA77CD /* ExellioDriver.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExellioDriver.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -36,7 +30,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FED32171BFE22D40067695E /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,12 +39,9 @@
 		089C166AFE841209C02AAC07 /* NativeAPI */ = {
 			isa = PBXGroup;
 			children = (
-				1FED32161BFE22D40067695E /* CoreMotion.framework */,
 				08FB77AFFE84173DC02AAC07 /* Source */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
-				823876A81F20AEBA00E2B260 /* NativeAPIDyLib */,
-				823876B51F20AEF600E2B260 /* NativeAPILib */,
 				19C28FB6FE9D52B211CA2CBB /* Products */,
 			);
 			name = NativeAPI;
@@ -80,8 +70,8 @@
 				1FED365D1C0862920067695E /* ConversionWchar.cpp */,
 				1FE2DA511BFDD771001EE409 /* AddInNative.h */,
 				1FE2DA4F1BFDD76C001EE409 /* AddInNative.cpp */,
-				1FE2DA4C1BFDD766001EE409 /* StepCounter.h */,
-				1FE2DA4D1BFDD766001EE409 /* StepCounter.mm */,
+				8283901D1F2C905200AE0A5B /* ExellioDriver.h */,
+				8283901E1F2C905200AE0A5B /* ExellioDriver.mm */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -89,27 +79,9 @@
 		19C28FB6FE9D52B211CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D576316048677EA00EA77CD /* com_1c_StepCounter.bundle */,
+				8D576316048677EA00EA77CD /* ExellioDriver.bundle */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		823876A81F20AEBA00E2B260 /* NativeAPIDyLib */ = {
-			isa = PBXGroup;
-			children = (
-				823876A91F20AEBA00E2B260 /* NativeAPIDyLib.h */,
-				823876AA1F20AEBA00E2B260 /* NativeAPIDyLib.m */,
-			);
-			path = NativeAPIDyLib;
-			sourceTree = "<group>";
-		};
-		823876B51F20AEF600E2B260 /* NativeAPILib */ = {
-			isa = PBXGroup;
-			children = (
-				823876B61F20AEF600E2B260 /* NativeAPILib.h */,
-				823876B71F20AEF600E2B260 /* NativeAPILib.m */,
-			);
-			path = NativeAPILib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +102,7 @@
 			name = NativeAPI;
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = NativeAPI;
-			productReference = 8D576316048677EA00EA77CD /* com_1c_StepCounter.bundle */;
+			productReference = 8D576316048677EA00EA77CD /* ExellioDriver.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -175,8 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FE2DA4E1BFDD766001EE409 /* StepCounter.mm in Sources */,
 				1FED365F1C0862920067695E /* ConversionWchar.cpp in Sources */,
+				8283901F1F2C905200AE0A5B /* ExellioDriver.mm in Sources */,
 				1FE2DA501BFDD76C001EE409 /* AddInNative.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,7 +185,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = com_1c_StepCounter;
+				PRODUCT_NAME = ExellioDriver;
 				STRIP_STYLE = all;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 arm64";
@@ -236,7 +208,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = com_1c_StepCounter;
+				PRODUCT_NAME = ExellioDriver;
 				STRIP_STYLE = all;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 arm64";
