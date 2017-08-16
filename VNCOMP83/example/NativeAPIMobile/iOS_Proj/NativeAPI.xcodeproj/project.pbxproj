@@ -42,6 +42,7 @@
 				08FB77AFFE84173DC02AAC07 /* Source */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
+				823CCEDC1F420E2A00251C5F /* Frameworks */,
 				19C28FB6FE9D52B211CA2CBB /* Products */,
 			);
 			name = NativeAPI;
@@ -82,6 +83,13 @@
 				8D576316048677EA00EA77CD /* ExellioDriver.bundle */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		823CCEDC1F420E2A00251C5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

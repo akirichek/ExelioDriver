@@ -29,6 +29,9 @@ public:
         eMethPrintXReport = 0,
         eMethPrintZReport,
         eMethPrintReceipt,
+        eMethRunCustomCommand,
+        eMethGetResult,
+        eMethIsConnected,
         eMethLast      // Always last
     };
 
@@ -72,7 +75,7 @@ private:
     IAddInDefBaseEx    *m_iConnect;
     IMemoryManager     *m_iMemory;
     bool                isConnected;
-    CExellioDriver      exellioDriver;
+    CExellioDriver      cExellioDriver;
 };
 
 #if defined(__APPLE__) && !defined(BUILD_DYNAMIC_LIBRARY)

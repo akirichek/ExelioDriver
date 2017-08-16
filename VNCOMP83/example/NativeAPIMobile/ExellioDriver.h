@@ -61,7 +61,12 @@ static WcharWrapper s_classNameExellioDriver(g_ClassExellioDriver);
         void printXReport();
         void printZReport();
         void printReceipt();
+        void runCustomCommand(tVariant cmd, tVariant data);
+        const wchar_t* getResult();
+        bool isConnected();
+        
         void setIConnect(IAddInDefBaseEx* piConnect);
+        
     private:
         IAddInDefBaseEx*    m_iCnt;
         ExellioDriverHelper *exellioDriverHelper;

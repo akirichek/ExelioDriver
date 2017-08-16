@@ -23,16 +23,21 @@ static const wchar_t *g_PropNames[] =
 static const wchar_t *g_MethodNames[] =
    {L"PrintXReport",
     L"PrintZReport",
-    L"PrintReceipt"};
+    L"PrintReceipt",
+    L"RunCustomCommand",
+    L"GetResult",
+    L"IsConnected"};
 
 static const wchar_t *g_PropNamesRu[] =
    {L"Подключен"};
 
 static const wchar_t *g_MethodNamesRu[] =
-    {L"ПоказатьУгловоеПоложениеУстройства"
-     L"РаспечататьXОтчет",
+    {L"РаспечататьXОтчет",
      L"РаспечататьZОтчет",
-     L"РаспечататьКвитанцию"};
+     L"РаспечататьКвитанцию",
+     L"ЗупуститьКоманду",
+     L"ПолучитьРезультат",
+     L"УстройствоПодключено"};
 
 static const wchar_t g_ComponentNameType[] = L"ExellioDriverExtension";
     
@@ -50,6 +55,7 @@ static AppCapabilities g_capabilities = eAppCapabilitiesInvalid;
 //---------------------------------------------------------------------------//
 long GetClassObject(const WCHAR_T* wsName, IComponentBase** pInterface)
 {
+    fprintf(stdout, "%s \n", __PRETTY_FUNCTION__);
     if(!*pInterface)
     {
         *pInterface = new ExellioDriver;
@@ -68,6 +74,7 @@ AppCapabilities SetPlatformCapabilities(const AppCapabilities capabilities)
 //---------------------------------------------------------------------------//
 long DestroyObject(IComponentBase** pInterface)
 {
+    fprintf(stdout, "%s \n", __PRETTY_FUNCTION__);
     if(!*pInterface)
         return -1;
 
@@ -85,11 +92,13 @@ const WCHAR_T* GetClassNames()
 //---------------------------------------------------------------------------//
 ExellioDriver::ExellioDriver() : m_iConnect(0), m_iMemory(0), isConnected(false)
 {
+    fprintf(stdout, "%s \n", __PRETTY_FUNCTION__);
 }
     
 //---------------------------------------------------------------------------//
 ExellioDriver::~ExellioDriver()
 {
+    fprintf(stdout, "%s \n", __PRETTY_FUNCTION__);
 }
     
 /////////////////////////////////////////////////////////////////////////////
@@ -97,10 +106,12 @@ ExellioDriver::~ExellioDriver()
 //---------------------------------------------------------------------------//
 bool ExellioDriver::Init(void* pConnection)
 {
+    fprintf(stdout, "%s \n", __PRETTY_FUNCTION__);
+    
     m_iConnect = (IAddInDefBaseEx*)pConnection;
     if (m_iConnect)
     {
-        exellioDriver.setIConnect(m_iConnect);
+        cExellioDriver.setIConnect(m_iConnect);
         return true;
     }
     return false;
@@ -267,7 +278,8 @@ long ExellioDriver::FindMethod(const WCHAR_T* wsMethodName)
     
 //---------------------------------------------------------------------------//
 const WCHAR_T* ExellioDriver::GetMethodName(const long lMethodNum, const long lMethodAlias)
-{ 
+{
+    fprintf(stdout, "%s, %ld \n", __PRETTY_FUNCTION__, lMethodNum);
     if (lMethodNum >= eMethLast)
         return NULL;
 
@@ -300,13 +312,21 @@ const WCHAR_T* ExellioDriver::GetMethodName(const long lMethodNum, const long lM
 //---------------------------------------------------------------------------//
 long ExellioDriver::GetNParams(const long lMethodNum)
 {
+    fprintf(stdout, "%s, %ld \n", __PRETTY_FUNCTION__, lMethodNum);
+    
+    switch (lMethodNum)
+    {
+        case eMethRunCustomCommand:
+            return 2;
+    }
     return 0;
 }
     
 //---------------------------------------------------------------------------//
 bool ExellioDriver::GetParamDefValue(const long lMethodNum, const long lParamNum,
                         tVariant *pvarParamDefValue)
-{ 
+{
+    fprintf(stdout, "%s, %ld \n", __PRETTY_FUNCTION__, lMethodNum);
     // There are no parameter values by default
     TV_VT(pvarParamDefValue) = VTYPE_EMPTY;
     
@@ -315,6 +335,7 @@ bool ExellioDriver::GetParamDefValue(const long lMethodNum, const long lParamNum
         case eMethPrintZReport:
         case eMethPrintXReport:
         case eMethPrintReceipt:
+        case eMethRunCustomCommand:
         {
             // No parameters
             return false;
@@ -326,13 +347,114 @@ bool ExellioDriver::GetParamDefValue(const long lMethodNum, const long lParamNum
     //---------------------------------------------------------------------------//
 bool ExellioDriver::HasRetVal(const long lMethodNum)
 {
+    fprintf(stdout, "%s, %ld \n", __PRETTY_FUNCTION__, lMethodNum);
+    
+    switch (lMethodNum)
+    {
+        case eMethIsConnected:
+        case eMethGetResult:        
+            return true;
+            break;
+        default:
+            return false;
+    }
     return false;
 }
     
-//---------------------------------------------------------------------------//
+    
+void printVariant(tVariant paParams)
+{
+    fprintf(stdout, "i8Val: %hhd \n", paParams.i8Val);
+    fprintf(stdout, "shortVal: %hd \n", paParams.shortVal);
+    fprintf(stdout, "lVal: %d \n", paParams.lVal);
+    fprintf(stdout, "intVal: %d \n", paParams.intVal);
+    fprintf(stdout, "uintVal: %u \n", paParams.uintVal);
+    fprintf(stdout, "llVal: %lld \n", paParams.llVal);
+    fprintf(stdout, "ui8Val: %hhu \n", paParams.ui8Val);
+    fprintf(stdout, "ushortVal: %hu \n", paParams.ushortVal);
+    fprintf(stdout, "ulVal: %u \n", paParams.ulVal);
+    fprintf(stdout, "ullVal: %llu \n", paParams.ullVal);
+    fprintf(stdout, "errCode: %d \n", paParams.errCode);
+    fprintf(stdout, "hRes: %ld \n", paParams.hRes);
+    fprintf(stdout, "fltVal: %f \n", paParams.fltVal);
+    fprintf(stdout, "dblVal: %f \n", paParams.dblVal);
+    fprintf(stdout, "bVal: %d \n", paParams.bVal);
+    fprintf(stdout, "chVal: %c \n", paParams.chVal);
+    //fprintf(stdout, "%s \n", paParams->wchVal);
+    fprintf(stdout, "date: %f \n", paParams.date);
+    //fprintf(stdout, "%s \n", paParams->IDVal);
+    //fprintf(stdout, "%s \n", paParams->pvarVal);
+    //fprintf(stdout, "%s \n", paParams->tmVal);
+    //fprintf(stdout, "%s \n", paParams->pInterfaceVal);
+    //fprintf(stdout, "%s \n", paParams->InterfaceID);
+    
+    fprintf(stdout, "strLen: %u \n", paParams.strLen);
+    if (paParams.strLen > 0) {
+        char *str = paParams.pstrVal;
+        
+        for (int i = 0; i < paParams.strLen; i++) {
+            fprintf(stdout, "pstrVal: %c \n", str[i]);
+        }
+        
+        //fprintf(stdout, "pstrVal: %s \n", str);
+    } else {
+        fprintf(stdout, "pstrVal: NULL \n");
+    }
+    
+    fprintf(stdout, "wstrLen: %u \n", paParams.wstrLen);
+    if (paParams.wstrLen > 0) {
+        
+        for (int i = 0; i < paParams.wstrLen; i++) {
+            //fprintf(stdout, "pwstrVal: %c \n", paParams.pwstrVal[i]);
+            fprintf(stdout, "pwstrVal: %d \n", paParams.pwstrVal[i]);
+        }
+        
+        
+        //fprintf(stdout, "pwstrVal: %s \n", paParams.pwstrVal);
+    } else {
+        fprintf(stdout, "wstrLen: NULL \n");
+    }
+
+    fprintf(stdout, "cbElements: %u \n", paParams.cbElements);
+    fprintf(stdout, "vt: %hu \n", paParams.vt);
+}
+    
+    //---------------------------------------------------------------------------//
 bool ExellioDriver::CallAsProc(const long lMethodNum,
                     tVariant* paParams, const long lSizeArray)
 {
+    fprintf(stdout, "%s, %ld, lSizeArray: %ld \n", __PRETTY_FUNCTION__, lMethodNum, lSizeArray);
+    if (paParams) {
+        printVariant(paParams[0]);
+        printVariant(paParams[1]);
+    }
+    
+    switch(lMethodNum)
+    {
+        case eMethPrintXReport:
+            cExellioDriver.printXReport();
+            break;
+        case eMethPrintZReport:
+            cExellioDriver.printZReport();
+            break;
+        case eMethPrintReceipt:
+            cExellioDriver.printReceipt();
+            break;
+        case eMethRunCustomCommand: {
+            if (!paParams || lSizeArray != 2) {
+                return false;
+            }
+            
+            tVariant cmd = paParams[0];
+            tVariant data = paParams[1];
+            
+            cExellioDriver.runCustomCommand(cmd, data);
+            break;
+        }
+        default:
+            return false;
+    }
+    
     return true;
 }
 
@@ -340,20 +462,45 @@ bool ExellioDriver::CallAsProc(const long lMethodNum,
 bool ExellioDriver::CallAsFunc(const long lMethodNum,
                 tVariant* pvarRetValue, tVariant* paParams, const long lSizeArray)
 {
+    fprintf(stdout, "%s, %ld \n", __PRETTY_FUNCTION__, lMethodNum);
+    
     switch(lMethodNum)
     {
-        case eMethPrintXReport:
-            exellioDriver.printXReport();
+        case eMethIsConnected:
+            TV_VT(pvarRetValue) = VTYPE_BOOL;
+            TV_BOOL(pvarRetValue) = cExellioDriver.isConnected();
             return true;
             break;
-        case eMethPrintZReport:
-            exellioDriver.printZReport();
+        case eMethGetResult:
+        {
+            // No parameters
+            if (lSizeArray || paParams)
+                return false;
+            
+            WCHAR_T *result = 0;
+            TV_VT(pvarRetValue) = VTYPE_PWSTR;
+
+            const wchar_t* exellioResult = cExellioDriver.getResult();
+            
+            uint32_t iActualSize = static_cast<uint32_t>(::wcslen(exellioResult) + 1);
+
+            if (m_iMemory)
+            {
+                if(m_iMemory->AllocMemory((void**)&result, iActualSize * sizeof(WCHAR_T)))
+                {
+                    convToShortWchar(&result, exellioResult, iActualSize);
+                    pvarRetValue->pwstrVal = result;
+                    pvarRetValue->wstrLen = static_cast<uint32_t>(::wcslen(exellioResult));
+                    
+                    printVariant(*pvarRetValue);
+                }
+            }
+            
+            delete[] exellioResult;
+            
             return true;
             break;
-        case eMethPrintReceipt:
-            exellioDriver.printReceipt();
-            return true;
-            break;
+        }
         default:
             return false;
     }
