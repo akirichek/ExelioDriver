@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "Lai strādātu ar iekārtas kalendāriem, nepieciešama atļauja.";
+NSCameraUsageDescription = "Lai fotografētu, ierakstītu video un skenētu svītrkodus, jāatļauj kameras izmantošana.";
+NSContactsUsageDescription = "Lai strādātu ar iekārtas kontaktiem, nepieciešama atļauja.";
+NSLocationAlwaysUsageDescription = "Lai strādātu ar geopozicionēšanas servisiem, nepieciešama atļauja.";
+NSLocationWhenInUseUsageDescription = "Lai strādātu ar geopozicionēšanas servisiem, nepieciešama atļauja.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Lai strādātu ar geopozicionēšanas servisiem, nepieciešama atļauja.";
+NSMicrophoneUsageDescription = "Lai varētu ierakstīt video un audio, jāatļauj mikrofona izmantošana.";

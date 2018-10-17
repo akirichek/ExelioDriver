@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "Darbui su įrenginio kalendoriais reikalingas leidimas.";
+NSCameraUsageDescription = "Norint fotografuoti, daryti video įrašus, skanuoti skaitmeninius kodus būtina įjungti leidimą naudoti kamerą";
+NSContactsUsageDescription = "Darbui su įrenginio kontaktais reikalingas leidimas.";
+NSLocationAlwaysUsageDescription = "Darbui su geopozicionavimo tarnybomis reikalingas leidimas.";
+NSLocationWhenInUseUsageDescription = "Darbui su geopozicionavimo tarnybomis reikalingas leidimas.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Darbui su geopozicionavimo tarnybomis reikalingas leidimas.";
+NSMicrophoneUsageDescription = "Norint daryti video ir audio įrašus būtina įjungti leidimą naudoti mikrofoną";

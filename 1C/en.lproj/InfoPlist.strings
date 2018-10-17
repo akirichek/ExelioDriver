@@ -1,0 +1,10 @@
+NSCalendarsUsageDescription = "The application requires a permission to access mobile device calendars.";
+NSCameraUsageDescription = "The application requires camera access permission to take photos, record videos, and scan barcodes.";
+NSContactsUsageDescription = "The application requires a permission to access mobile device contacts.";
+NSLocationAlwaysUsageDescription = "The application requires a permission to access location services even if the app is not running.";
+NSLocationWhenInUseUsageDescription = "The application requires a permission to access location services.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "The application requires a permission to access location services even if the app is not running.";
+NSMicrophoneUsageDescription = "The application requires microphone access permission to record videos and audio files.";
+NSAppleMusicUsageDescription = "The application requires a permission to play music from music library.";
+NSBluetoothPeripheralUsageDescription = "The application requires a permission to print on mobile printers.";
+NSPhotoLibraryUsageDescription = "The application requires a permission to import library photos and videos.";

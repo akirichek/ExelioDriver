@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "Do pracy z kalendarzami na urządzeniu wymagana jest zgoda.";
+NSCameraUsageDescription = "Aby móc robić zdjęcia, kręcić filmiki lub skanować kody kreskowe, należy zezwolić na dostęp do kamery.";
+NSContactsUsageDescription = "Do pracy z kontaktami na urządzeniu wymagana jest zgoda.";
+NSLocationAlwaysUsageDescription = "Do pracy z usługami geolokalizacji wymagana jest zgoda.";
+NSLocationWhenInUseUsageDescription = "Do pracy z usługami geolokalizacji wymagana jest zgoda.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Do pracy z usługami geolokalizacji wymagana jest zgoda.";
+NSMicrophoneUsageDescription = "Aby móc kręcić filmiki lub nagrywać dźwięk, należy zezwolić na dostęp do mikrofonu.";

@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "为了带有设备进程表的工作要求许可证。";
+NSCameraUsageDescription = "为了照相，记录视频和扫描条形码必须准许使用摄像机。";
+NSContactsUsageDescription = "为了带有设备联系的工作要求许可证。";
+NSLocationAlwaysUsageDescription = "为了带有地理定位服务的工作要求许可证。";
+NSLocationWhenInUseUsageDescription = "为了带有地理定位服务的工作要求许可证。";
+NSLocationAlwaysAndWhenInUseUsageDescription = "为了带有地理定位服务的工作要求许可证。";
+NSMicrophoneUsageDescription = "为了记录视频和音频必须准许使用麦克风。";

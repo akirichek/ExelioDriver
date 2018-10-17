@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "Құрылғының күнтізбелерімен жұмыс істеу үшін рұқсат ету талап етіледі.";
+NSCameraUsageDescription = "Штрихкодтарды фотосуретке түсіру, бейнежазба жазу және сканерлеу үшін камераны пайдалануды рұқсат ету қажет.";
+NSContactsUsageDescription = "Контактілермен жұмыс істеу үшін рұқсат ету талап етіледі.";
+NSLocationAlwaysUsageDescription = "Геопозициялау сервистерімен жұмыс істеу үшін рұқсат ету талап етіледі.";
+NSLocationWhenInUseUsageDescription = "Геопозициялау сервистерімен жұмыс істеу үшін рұқсат ету талап етіледі.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Геопозициялау сервистерімен жұмыс істеу үшін рұқсат ету талап етіледі.";
+NSMicrophoneUsageDescription = "Бейне және аудио жазба үшін микрофонды пайдалануды рұқсат ету қажет.";

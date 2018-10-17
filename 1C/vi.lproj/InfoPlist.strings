@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "Cần có quyền để làm việc với lịch của thiết bị.";
+NSCameraUsageDescription = "Để chụp ảnh, ghi video và quét mã vạch cần cho phép sử dụng máy chụp ảnh.";
+NSContactsUsageDescription = "Cần cho phép để làm việc với danh bạ của thiết bị.";
+NSLocationAlwaysUsageDescription = "Cần cho phép để làm việc với dịch vụ định vị địa lý.";
+NSLocationWhenInUseUsageDescription = "Cần cho phép để làm việc với dịch vụ định vị địa lý.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Cần cho phép để làm việc với dịch vụ định vị địa lý.";
+NSMicrophoneUsageDescription = "Để ghi video và audio cần cho phép sử dụng micrô.";

@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "Az eszköz naptárainak eléréséhez engedélyre van szükség.";
+NSCameraUsageDescription = "A fotó, videó készítéshez és vonalkód beolvasáshoz a kamera használatának enegedélyzésére van szükség.";
+NSContactsUsageDescription = "Az eszköz kapcsolatainak eléréséhez engedélyre van szükség.";
+NSLocationAlwaysUsageDescription = "Az eszköz geolokációs szolgáltatásainak eléréséhez engedélyre van szükség.";
+NSLocationWhenInUseUsageDescription = "Az eszköz geolokációs szolgáltatásainak eléréséhez engedélyre van szükség.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Az eszköz geolokációs szolgáltatásainak eléréséhez engedélyre van szükség.";
+NSMicrophoneUsageDescription = "Az audió és videó felvétel készítéséhez a mikrofon használatának enegedélyzésére van szükség.";

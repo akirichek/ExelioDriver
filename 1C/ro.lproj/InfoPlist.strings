@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "Pentru lucrul cu calendarele dispozitivului este necesară permisiunea.";
+NSCameraUsageDescription = "Pentru fotografiere, înregistrare video și scanarea codurilor de bare este necesară permisiunea de utilizare a camerei.";
+NSContactsUsageDescription = "Pentru lucrul cu contactele dispozitivului este necesară permisiunea.";
+NSLocationAlwaysUsageDescription = "Pentru lucrul cu serviciile de geolocație este necesară permisiunea.";
+NSLocationWhenInUseUsageDescription = "Pentru lucrul cu serviciile de geolocație este necesară permisiunea.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Pentru lucrul cu serviciile de geolocație este necesară permisiunea.";
+NSMicrophoneUsageDescription = "Pentru a putea înregistra video și audio trebuie să permiteți utilizarea microfonului.";

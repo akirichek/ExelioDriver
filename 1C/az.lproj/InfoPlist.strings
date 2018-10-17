@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "Avadanlıqların təqvimləri ilə işləmə üçün icazə tələb olunur.";
+NSCameraUsageDescription = "Fotoşəkillərin əldə edilməsi, video yazma və ştrixkod oxuma üçün kameradan istifadə etməyə icazə verilməlidir.";
+NSContactsUsageDescription = "Avadanlıqların əlaqə məlumatları ilə işləmək üçün icazə tələb olunur.";
+NSLocationAlwaysUsageDescription = "Geomövqelənmə xidmətləri ilə işləmək üçün icazə tələb olunur.";
+NSLocationWhenInUseUsageDescription = "Geomövqelənmə xidmətləri ilə işləmək üçün icazə tələb olunur.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Geomövqelənmə xidmətləri ilə işləmək üçün icazə tələb olunur.";
+NSMicrophoneUsageDescription = "Video və audio yazı üçün mikrofonun istifadəsinə icazə verilməlidir.";

@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "Cihaz takvimleriyle çalışmak için izin gereklidir.";
+NSCameraUsageDescription = "Fotoğraf çekmek, video kaydetmek ve barkod taramak için kamerayı izin vermeniz gerekir.";
+NSContactsUsageDescription = "Bu izin olmadan, uygulama cihaz kişileri ile çalışamaz.";
+NSLocationAlwaysUsageDescription = "Coğrafi konum hizmetleri ile çalışmak için izin gereklidir.";
+NSLocationWhenInUseUsageDescription = "Coğrafi konum hizmetleri ile çalışmak için izin gereklidir.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Coğrafi konum hizmetleri ile çalışmak için izin gereklidir.";
+NSMicrophoneUsageDescription = "Video ve ses kaydetmek için bir mikrofon kullanılmasına izin vermelisiniz.";

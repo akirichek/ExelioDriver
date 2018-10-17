@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "Sans cette autorisation, l’application ne pourra pas travailler avec les calendriers du dispositif.";
+NSCameraUsageDescription = "Sans cette autorisation, l’application ne pourra pas recevoir de photo, enregistrer de vidéo, ni scanner de codes-barres.";
+NSContactsUsageDescription = "Sans cette autorisation, l’application ne pourra pas travailler avec les contacts du dispositif.";
+NSLocationAlwaysUsageDescription = "Sans cette autorisation, l’application ne pourra pas travailler avec les services de géolocalisation.";
+NSLocationWhenInUseUsageDescription = "Sans cette autorisation, l’application ne pourra pas travailler avec les services de géolocalisation.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Sans cette autorisation, l’application ne pourra pas travailler avec les services de géolocalisation.";
+NSMicrophoneUsageDescription = "Sans cette autorisation, l’application ne pourra pas enregistrer de vidéo, ni d’audio.";

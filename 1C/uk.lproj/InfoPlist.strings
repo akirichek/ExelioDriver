@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "Для роботи з календарями пристрою потрібний дозвіл.";
+NSCameraUsageDescription = "Для фотографування, запису відео та сканування штрихкодів необхідно дозволити використання камери.";
+NSContactsUsageDescription = "Для роботи з контактами пристрою потрібний дозвіл.";
+NSLocationAlwaysUsageDescription = "Для роботи із сервісами геопозиціонування потрібний дозвіл.";
+NSLocationWhenInUseUsageDescription = "Для роботи із сервісами геопозиціонування потрібний дозвіл.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Для роботи із сервісами геопозиціонування потрібний дозвіл.";
+NSMicrophoneUsageDescription = "Для запису відео та аудіо необхідно дозволити використання мікрофону.";

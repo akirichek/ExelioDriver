@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "მოწყობილობაზე კალენდართან მუშაობისთვის საჭიროა დაშვება.";
+NSCameraUsageDescription = "ფოტოების გადაღების, ვიდეოების ჩაწერისა და შტრიხკოდების დასკანერებისთვის საჭიროა კამერის გამოყენების დაშვება.";
+NSContactsUsageDescription = "მოწყობილობაზე კონტაქტებთან მუშაობისთვის საჭიროა დაშვება.";
+NSLocationAlwaysUsageDescription = "გეოპოზიციონირების სერვისებთან მუშაობისთვის საჭიროა დაშვება.";
+NSLocationWhenInUseUsageDescription = "გეოპოზიციონირების სერვისებთან მუშაობისთვის საჭიროა დაშვება.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "გეოპოზიციონირების სერვისებთან მუშაობისთვის საჭიროა დაშვება.";
+NSMicrophoneUsageDescription = "ვიდეო და აუდიო ჩანაწერებისთვის აუცილებელია მიკროფონის გამოყენების დაშვება.";

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <BackgroundLocationUpdates>
+		<key>UIBackgroundModes</key>
+		<array>
+			<string>location</string>
+		</array>
+    </BackgroundLocationUpdates>
+    <BackgroundAudio>
+		<key>UIBackgroundModes</key>
+		<array>
+			<string>audio</string>
+		</array>
+    </BackgroundAudio>
+    <FileSharing>
+		<key>UIFileSharingEnabled</key>
+		<true/>
+    </FileSharing>
+    <Multimedia/>
+    <Location/>
+    <Print/>
+    <Telephony/>
+    <Contacts/>
+    <Calendars/>
+    <PushNotification/>
+    <LocalNotification/>
+    <InAppPurchases/>
+    <Ads/>
+</root>

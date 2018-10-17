@@ -1,0 +1,7 @@
+NSCalendarsUsageDescription = "За работа с календарите на устройството е необходимо разрешение.";
+NSCameraUsageDescription = "За фотографиране, видеозапис и сканиране на баркодове е необходимо разрешение за използване на камера.";
+NSContactsUsageDescription = "За работа с контактите на устройството е необходимо разрешение.";
+NSLocationAlwaysUsageDescription = "За работа с услугите по геопозициониране е необходимо разрешение.";
+NSLocationWhenInUseUsageDescription = "За работа с услугите по геопозициониране е необходимо разрешение.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "За работа с услугите по геопозициониране е необходимо разрешение.";
+NSMicrophoneUsageDescription = "За запис на видео и аудио е необходимо да разрешите използването на микрофон.";

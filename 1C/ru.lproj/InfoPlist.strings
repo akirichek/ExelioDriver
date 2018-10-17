@@ -1,0 +1,10 @@
+NSCalendarsUsageDescription = "Для работы с календарями устройства требуется разрешение.";
+NSCameraUsageDescription = "Для фотографирования, записи видео и сканирования штрихкодов необходимо разрешить использование камеры.";
+NSContactsUsageDescription = "Для работы с контактами устройства требуется разрешение.";
+NSLocationAlwaysUsageDescription = "Для работы с сервисами геопозиционирования требуется разрешение.";
+NSLocationWhenInUseUsageDescription = "Для работы с сервисами геопозиционирования требуется разрешение.";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Для работы с сервисами геопозиционирования требуется разрешение.";
+NSMicrophoneUsageDescription = "Для записи видео и аудио необходимо разрешить использование микрофона.";
+NSAppleMusicUsageDescription = "Для поигрывания музыки в приложении требуется разрешение.";
+NSBluetoothPeripheralUsageDescription = "Для печати на Bluetooth принтерах требуется разрешение.";
+NSPhotoLibraryUsageDescription = "Для работы с альбомами фотографий и видео на устройстве требуется разрешение.";
