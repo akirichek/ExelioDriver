@@ -1,0 +1,11 @@
+framework module MiniPosLib {
+  umbrella header "MiniPosLib.h"
+
+  export *
+  module * { export * }
+}
+
+module MiniPosLib.Swift {
+    header "MiniPosLib-Swift.h"
+    requires objc
+}

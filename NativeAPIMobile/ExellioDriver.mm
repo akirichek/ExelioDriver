@@ -3,8 +3,11 @@
 #include "include/AddInDefBase.h"
 #import <ExellioFiscalDriver/ExellioFiscalDriver.h>
 #import <Foundation/Foundation.h>
-#import "DTDevices.h"
 #import "Utils.h"
+//#import <MiniPosLib/MiniPosLib-Swift.h>
+#import "DTDevices.h"
+#import "ExellioDriver-Swift.h"
+
 
 namespace EXELLIO_DRIVER
 {
@@ -49,6 +52,7 @@ using namespace EXELLIO_DRIVER;
 {
     self = [super init];
     if (self) {
+        NSLog(@"2New2New2New2New2New2New");
         self.fpu = [[ExellioFiscalDriver alloc]initUseAutoConnection: true];
         [self.fpu addDelegate:self];
     }
@@ -404,18 +408,19 @@ namespace EXELLIO_DRIVER
     
 #endif //!BUILD_DYNAMIC_LIBRARY
     
-CExellioDriver::CExellioDriver() : m_iCnt(NULL), exellioDriverHelper(NULL), lineaProDriverHelper(NULL) {
+CExellioDriver::CExellioDriver() : m_iCnt(NULL), exellioDriverHelper(NULL), lineaProDriverHelper(NULL), bluePad50DriverHelper(NULL) {
     NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 CExellioDriver::~CExellioDriver()
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    if (exellioDriverHelper && lineaProDriverHelper)
+    if (exellioDriverHelper && lineaProDriverHelper && bluePad50DriverHelper)
     {
         dispatch_sync(dispatch_get_main_queue(), ^{
             exellioDriverHelper = NULL;
             lineaProDriverHelper = NULL;
+            bluePad50DriverHelper = NULL;
         });
     }
 }
@@ -429,6 +434,7 @@ void CExellioDriver::setIConnect(IAddInDefBaseEx* piConnect)
         dispatch_sync(dispatch_get_main_queue(), ^{
             exellioDriverHelper = [ExellioDriverHelper sharedInstanceWithConnect:m_iCnt];
             lineaProDriverHelper = [LineaProDriverHelper sharedInstanceWithConnect:m_iCnt];
+            bluePad50DriverHelper = [BluePad50DriverHelper sharedInstanceWithConnect:m_iCnt];
         });
     }
 }
@@ -551,6 +557,202 @@ void CExellioDriver::turnOffLineaProCharging()
     
 #if !defined(BUILD_DYNAMIC_LIBRARY)
     
+}
+
+#endif //!BUILD_DYNAMIC_LIBRARY
+
+@interface BluePad50DriverHelper: NSObject <MiniPosWrapperDelegate>
+{
+    IAddInDefBaseEx         *m_iConn;
+}
+
+@property (strong, nonatomic) MiniPosWrapper *miniPosWrapper;
+
++ (instancetype)sharedInstanceWithConnect:(IAddInDefBaseEx*)piConnect;
+
+- (void)connect;
+- (void)startTransaction:(double)amount purpose:(NSString *)purpose token:(NSString *)token;
+- (void)reverseRequest:(NSString *)transactionId serialNumber:(NSString *)serialNumber token:(NSString *)token;
+- (void)dealloc;
+
+@end;
+
+@implementation BluePad50DriverHelper
+
++ (instancetype)sharedInstanceWithConnect:(IAddInDefBaseEx*)piConnect
+{
+    static BluePad50DriverHelper *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[BluePad50DriverHelper alloc] init];
+    });
+    sharedInstance->m_iConn = piConnect;
+    return sharedInstance;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.miniPosWrapper = [MiniPosWrapper shared];
+    }
+    return self;
+}
+
+-(void)dealloc {
+    NSLog(@"<%@:%@>", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    m_iConn = NULL;
+    [super dealloc];
+}
+
+- (void)connect {
+    NSLog(@"<%@:%@>", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    self.miniPosWrapper.delegate = self;
+    [self.miniPosWrapper connect];
+}
+
+- (void)startTransaction:(double)amount purpose:(NSString *)purpose token:(NSString *)token {
+    NSLog(@"<%@:%@>", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    [self.miniPosWrapper startTransactionWithAmout:amount purpose:purpose token:token];
+}
+
+- (void)reverseRequest:(NSString *)transactionId serialNumber:(NSString *)serialNumber token:(NSString *)token {
+    NSLog(@"<%@:%@>", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    [self.miniPosWrapper reverseRequestWithTransactionId:transactionId serialNumber:serialNumber token:token];
+}
+
+#pragma mark - MiniPosWrapperDelegate
+
+- (void)miniPosWrapperDeviceConnectionState:(int32_t)state {
+    NSLog(@"%s %d", __PRETTY_FUNCTION__, state);
+
+    NSString *stateString = [NSString stringWithFormat:@"%d", state];
+    wchar_t *g_paramEvent = [Utils wcharFromNSString:stateString];
+    WCHAR_T *s_paramEvent = 0;
+    convToShortWchar(&s_paramEvent, g_paramEvent);
+
+    if (m_iConn) {
+        m_iConn->ExternalEvent(s_classNameBluePad50Driver, s_bluePad50OnConnectionStatusChange, s_paramEvent);
+    }
+
+    delete[] s_paramEvent;
+    delete[] g_paramEvent;
+}
+
+- (void)miniPosWrapperTransactionFailureWithReason:(NSString * _Nonnull)transactionFailureReason {
+    NSLog(@"%s %@", __PRETTY_FUNCTION__, transactionFailureReason);
+    NSString *reasonString = transactionFailureReason;
+    wchar_t *g_paramReason = [Utils wcharFromNSString:reasonString];
+    WCHAR_T *s_paramReason = 0;
+    convToShortWchar(&s_paramReason, g_paramReason);
+
+    if (m_iConn) {
+        m_iConn->ExternalEvent(s_classNameBluePad50Driver, s_bluePad50OnTransactionFinish, s_paramReason);
+    }
+
+    delete[] s_paramReason;
+    delete[] g_paramReason;
+}
+
+- (void)miniPosWrapperTransactionSuccessWithJson:(id _Nonnull)json {
+    NSLog(@"%s %@", __PRETTY_FUNCTION__, json);
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json
+                                                       options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    wchar_t *g_paramJSON = [Utils wcharFromNSString:jsonString];
+    WCHAR_T *s_paramJSON = 0;
+    convToShortWchar(&s_paramJSON, g_paramJSON);
+
+    if (m_iConn) {
+        m_iConn->ExternalEvent(s_classNameBluePad50Driver, s_bluePad50OnTransactionFinish, s_paramJSON);
+    }
+
+    delete[] s_paramJSON;
+    delete[] g_paramJSON;
+}
+
+- (void)miniPosWrapperReverseRequestFailureWithErrorCode:(NSInteger)errorCode { 
+    NSLog(@"%s %ld", __PRETTY_FUNCTION__, (long)errorCode);
+    NSString *reasonString = [NSString stringWithFormat:@"%ld", (long)errorCode];;
+    wchar_t *g_paramReason = [Utils wcharFromNSString:reasonString];
+    WCHAR_T *s_paramReason = 0;
+    convToShortWchar(&s_paramReason, g_paramReason);
+    
+    if (m_iConn) {
+        m_iConn->ExternalEvent(s_classNameBluePad50Driver, s_bluePad50OnTransactionFinish, s_paramReason);
+    }
+    
+    delete[] s_paramReason;
+    delete[] g_paramReason;
+}
+
+
+- (void)miniPosWrapperReverseRequestSuccess { 
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSString *reasonString = @"";
+    wchar_t *g_paramReason = [Utils wcharFromNSString:reasonString];
+    WCHAR_T *s_paramReason = 0;
+    convToShortWchar(&s_paramReason, g_paramReason);
+    
+    if (m_iConn) {
+        m_iConn->ExternalEvent(s_classNameBluePad50Driver, s_bluePad50OnTransactionFinish, s_paramReason);
+    }
+    
+    delete[] s_paramReason;
+    delete[] g_paramReason;
+}
+
+
+@end
+
+
+//----------------------------------------------------------------------------//
+
+#if !defined(BUILD_DYNAMIC_LIBRARY)
+
+namespace EXELLIO_DRIVER
+{
+
+#endif //!BUILD_DYNAMIC_LIBRARY
+
+    void CExellioDriver::BluePad50Connect()
+    {
+        NSLog(@"%s", __PRETTY_FUNCTION__);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [bluePad50DriverHelper connect];
+        });
+    }
+
+    void CExellioDriver::BluePad50StartTransaction(tVariant amount, tVariant purpose, tVariant token)
+    {
+        int amountInt = amount.intVal;
+        double amountDouble = amountInt / 100.0;
+        NSString *purposeString = [NSString stringWithCharacters:purpose.pwstrVal length:purpose.wstrLen];
+        NSString *tokenString = [NSString stringWithCharacters:token.pwstrVal length:token.wstrLen];
+
+        NSLog(@"%s amount: %f, purpose: %@, tokenString: %@", __PRETTY_FUNCTION__, amountDouble, purposeString, tokenString);
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [bluePad50DriverHelper startTransaction:amountDouble purpose:purposeString token:tokenString];
+        });
+    }
+    
+    void CExellioDriver::BluePad50ReverseRequest(tVariant transactionId, tVariant serialNumber, tVariant token)
+    {
+        NSString *transactionIdString = [NSString stringWithCharacters:transactionId.pwstrVal length:transactionId.wstrLen];
+        NSString *serialNumberString = [NSString stringWithCharacters:serialNumber.pwstrVal length:serialNumber.wstrLen];
+        NSString *tokenString = [NSString stringWithCharacters:token.pwstrVal length:token.wstrLen];
+
+        NSLog(@"%s transactionId: %@, serialNumber: %@, tokenString: %@", __PRETTY_FUNCTION__, transactionIdString, serialNumberString, tokenString);
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [bluePad50DriverHelper reverseRequest:transactionIdString serialNumber:serialNumberString token:tokenString];
+        });
+    }
+
+#if !defined(BUILD_DYNAMIC_LIBRARY)
+
 }
 
 #endif //!BUILD_DYNAMIC_LIBRARY

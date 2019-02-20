@@ -1,6 +1,0 @@
-framework module ExellioFiscalDriver {
-  umbrella header "ExellioFiscalDriver.h"
-
-  export *
-  module * { export * }
-}

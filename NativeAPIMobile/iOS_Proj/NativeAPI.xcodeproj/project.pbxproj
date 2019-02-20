@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		1FE2DA501BFDD76C001EE409 /* AddInNative.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2DA4F1BFDD76C001EE409 /* AddInNative.cpp */; };
 		1FED365F1C0862920067695E /* ConversionWchar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FED365D1C0862920067695E /* ConversionWchar.cpp */; };
-		822C652D1F4C3787000B97DF /* ExellioFiscalDriver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822C652C1F4C3787000B97DF /* ExellioFiscalDriver.framework */; };
-		824CC1CC1F598E1800B5F86E /* libdtdev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 824CC1CB1F598E1800B5F86E /* libdtdev.a */; };
 		8283901F1F2C905200AE0A5B /* ExellioDriver.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8283901E1F2C905200AE0A5B /* ExellioDriver.mm */; };
 		828AC1D91FAB2FB30059BFD9 /* Utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 828AC1D81FAB2FB30059BFD9 /* Utils.mm */; };
+		8687DF2822106A9400785A2A /* libdtdev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8687DF2422106A9300785A2A /* libdtdev.a */; };
+		8687DF2922106A9400785A2A /* ExellioFiscalDriver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8687DF2622106A9400785A2A /* ExellioFiscalDriver.framework */; };
+		869D405422105DCE00A38668 /* MiniPosWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869D405322105DCE00A38668 /* MiniPosWrapper.swift */; };
+		869D405622105E8500A38668 /* MiniPosLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869D405522105E8500A38668 /* MiniPosLib.framework */; };
+		869D405822105EE000A38668 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869D405722105EE000A38668 /* Alamofire.framework */; };
 		8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49A704867FD3000E48DA /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -22,15 +25,19 @@
 		1FE2DA511BFDD771001EE409 /* AddInNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddInNative.h; path = ../AddInNative.h; sourceTree = "<group>"; };
 		1FED365D1C0862920067695E /* ConversionWchar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConversionWchar.cpp; path = ../ConversionWchar.cpp; sourceTree = "<group>"; };
 		1FED365E1C0862920067695E /* ConversionWchar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConversionWchar.h; path = ../ConversionWchar.h; sourceTree = "<group>"; };
-		822C652C1F4C3787000B97DF /* ExellioFiscalDriver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ExellioFiscalDriver.framework; sourceTree = "<group>"; };
-		824CC1C81F598E1800B5F86E /* DTDevices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDevices.h; sourceTree = "<group>"; };
-		824CC1C91F598E1800B5F86E /* EMVPrivateTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMVPrivateTags.h; sourceTree = "<group>"; };
-		824CC1CA1F598E1800B5F86E /* EMVTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMVTags.h; sourceTree = "<group>"; };
-		824CC1CB1F598E1800B5F86E /* libdtdev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdtdev.a; sourceTree = "<group>"; };
 		8283901D1F2C905200AE0A5B /* ExellioDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExellioDriver.h; path = ../ExellioDriver.h; sourceTree = "<group>"; };
 		8283901E1F2C905200AE0A5B /* ExellioDriver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ExellioDriver.mm; path = ../ExellioDriver.mm; sourceTree = "<group>"; };
 		828AC1D71FAB2FB30059BFD9 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		828AC1D81FAB2FB30059BFD9 /* Utils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Utils.mm; sourceTree = "<group>"; };
+		8687DF2322106A9300785A2A /* DTDevices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDevices.h; sourceTree = "<group>"; };
+		8687DF2422106A9300785A2A /* libdtdev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdtdev.a; sourceTree = "<group>"; };
+		8687DF2522106A9400785A2A /* EMVPrivateTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMVPrivateTags.h; sourceTree = "<group>"; };
+		8687DF2622106A9400785A2A /* ExellioFiscalDriver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ExellioFiscalDriver.framework; sourceTree = "<group>"; };
+		8687DF2722106A9400785A2A /* EMVTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMVTags.h; sourceTree = "<group>"; };
+		869D405222105DCE00A38668 /* NativeAPI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NativeAPI-Bridging-Header.h"; sourceTree = "<group>"; };
+		869D405322105DCE00A38668 /* MiniPosWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPosWrapper.swift; sourceTree = "<group>"; };
+		869D405522105E8500A38668 /* MiniPosLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MiniPosLib.framework; sourceTree = "<group>"; };
+		869D405722105EE000A38668 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		8D576316048677EA00EA77CD /* ExellioDriver.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExellioDriver.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -40,8 +47,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				822C652D1F4C3787000B97DF /* ExellioFiscalDriver.framework in Frameworks */,
-				824CC1CC1F598E1800B5F86E /* libdtdev.a in Frameworks */,
+				869D405622105E8500A38668 /* MiniPosLib.framework in Frameworks */,
+				8687DF2922106A9400785A2A /* ExellioFiscalDriver.framework in Frameworks */,
+				869D405822105EE000A38668 /* Alamofire.framework in Frameworks */,
+				8687DF2822106A9400785A2A /* libdtdev.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +97,8 @@
 				8283901E1F2C905200AE0A5B /* ExellioDriver.mm */,
 				828AC1D71FAB2FB30059BFD9 /* Utils.h */,
 				828AC1D81FAB2FB30059BFD9 /* Utils.mm */,
+				869D405322105DCE00A38668 /* MiniPosWrapper.swift */,
+				869D405222105DCE00A38668 /* NativeAPI-Bridging-Header.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -103,7 +114,6 @@
 		823CCEDC1F420E2A00251C5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				822C652C1F4C3787000B97DF /* ExellioFiscalDriver.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,10 +121,13 @@
 		824CC1C71F598E1800B5F86E /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				824CC1C81F598E1800B5F86E /* DTDevices.h */,
-				824CC1C91F598E1800B5F86E /* EMVPrivateTags.h */,
-				824CC1CA1F598E1800B5F86E /* EMVTags.h */,
-				824CC1CB1F598E1800B5F86E /* libdtdev.a */,
+				8687DF2322106A9300785A2A /* DTDevices.h */,
+				8687DF2522106A9400785A2A /* EMVPrivateTags.h */,
+				8687DF2722106A9400785A2A /* EMVTags.h */,
+				8687DF2422106A9300785A2A /* libdtdev.a */,
+				8687DF2622106A9400785A2A /* ExellioFiscalDriver.framework */,
+				869D405522105E8500A38668 /* MiniPosLib.framework */,
+				869D405722105EE000A38668 /* Alamofire.framework */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -146,6 +159,11 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				TargetAttributes = {
+					8D57630D048677EA00EA77CD = {
+						LastSwiftMigration = 1000;
+					};
+				};
 			};
 			buildConfigurationList = 1DEB911E08733D790010E9CD /* Build configuration list for PBXProject "NativeAPI" */;
 			compatibilityVersion = "Xcode 3.1";
@@ -186,6 +204,7 @@
 				8283901F1F2C905200AE0A5B /* ExellioDriver.mm in Sources */,
 				1FE2DA501BFDD76C001EE409 /* AddInNative.cpp in Sources */,
 				828AC1D91FAB2FB30059BFD9 /* Utils.mm in Sources */,
+				869D405422105DCE00A38668 /* MiniPosWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,12 +226,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -222,17 +245,21 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
 				);
 				MACH_O_TYPE = staticlib;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = ExellioDriver;
 				STRIP_STYLE = all;
+				SWIFT_OBJC_BRIDGING_HEADER = "NativeAPI-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7 arm64";
+				VALID_ARCHS = "armv7 arm64 armv7s";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -241,19 +268,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G5;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
@@ -262,8 +294,10 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = ExellioDriver;
 				STRIP_STYLE = all;
+				SWIFT_OBJC_BRIDGING_HEADER = "NativeAPI-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7 arm64";
+				VALID_ARCHS = "armv7 arm64 armv7s";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;

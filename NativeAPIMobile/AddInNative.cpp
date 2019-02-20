@@ -34,9 +34,9 @@ static const wchar_t *g_MethodNames[] =
     L"GetLineaProCharging",
     L"TurnOnLineaProCharging",
     L"TurnOffLineaProCharging",
-       "BluePad50Connect"
-       "BluePad50StartTransaction"
-       "BluePad50GetReceipt"
+    L"BluePad50Connect",
+    L"BluePad50StartTransaction",
+    L"BluePad50ReverseRequest"
    };
 
 static const wchar_t *g_PropNamesRu[] =
@@ -55,7 +55,10 @@ static const wchar_t *g_MethodNamesRu[] =
      L"ПолучитьLineaProЕмкостьБатареи",
      L"ПолучитьLineaProЗаряжает",
      L"ВключитьLineaProЗаряжает",
-     L"ВыключитьLineaProЗаряжает"
+     L"ВыключитьLineaProЗаряжает",
+     L"BluePad50Подключить",
+     L"BluePad50НачатьТранзакцию",
+     L"BluePad50ОбратныйЗапрос"
     };
 
 static const wchar_t g_ComponentNameType[] = L"ExellioDriverExtension";
@@ -332,6 +335,8 @@ long ExellioDriver::GetNParams(const long lMethodNum)
     {
         case eMethRunCustomCommand:
             return 2;
+        case eMethBluePad50StartTransaction:
+            return 3;
     }
     return 0;
 }
@@ -343,18 +348,6 @@ bool ExellioDriver::GetParamDefValue(const long lMethodNum, const long lParamNum
     fprintf(stdout, "%s, %ld \n", __PRETTY_FUNCTION__, lMethodNum);
     // There are no parameter values by default
     TV_VT(pvarParamDefValue) = VTYPE_EMPTY;
-    
-    switch (lMethodNum)
-    {
-        case eMethPrintZReport:
-        case eMethPrintXReport:
-        case eMethPrintReceipt:
-        case eMethRunCustomCommand:
-        {
-            // No parameters
-            return false;
-        }
-    }
     return false;
 }
     
@@ -480,6 +473,29 @@ bool ExellioDriver::CallAsProc(const long lMethodNum,
         case eMethTurnOffLineaProCharging:
             cExellioDriver.turnOffLineaProCharging();
             break;
+        case eMethBluePad50Connect:
+            cExellioDriver.BluePad50Connect();
+            break;
+        case eMethBluePad50StartTransaction: {
+            if (!paParams || lSizeArray != 3) {
+                return false;
+            }
+            tVariant amount = paParams[0];
+            tVariant purpose = paParams[1];
+            tVariant token = paParams[2];
+            cExellioDriver.BluePad50StartTransaction(amount, purpose, token);
+            break;
+        }
+        case eMethBluePad50ReverseRequest: {
+            if (!paParams || lSizeArray != 3) {
+                return false;
+            }
+            tVariant transactionId = paParams[0];
+            tVariant serialNumber = paParams[1];
+            tVariant token = paParams[2];
+            cExellioDriver.BluePad50ReverseRequest(transactionId, serialNumber, token);
+            break;
+        }
         default:
             return false;
     }

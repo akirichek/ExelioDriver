@@ -10,6 +10,7 @@
 
 @class ExellioDriverHelper;
 @class LineaProDriverHelper;
+@class BluePad50DriverHelper;
 
 #endif //__OBJC__
 
@@ -32,10 +33,6 @@ static WcharWrapper s_kClassNames(g_kClassNames);
 static WcharWrapper s_exellioDriverResult(g_exellioDriverResult);
 static WcharWrapper s_classNameExellioDriver(g_ClassExellioDriver);
     
-//BluePad50OnConnectionStatusChange
-//BluePad50OnTransactionFinish
-    //       "BluePad50Connect"
-    "BluePad50StartTransaction"
 static const wchar_t g_connectionStatusChanged[] = L"OnConnectionStatusChange";
 static const wchar_t g_barcodeScanned[] = L"OnBarcodeScan";
 static const wchar_t g_magneticCardScanned[] = L"OnMagneticCardScan";
@@ -48,7 +45,15 @@ static WcharWrapper s_magneticCardScanned(g_magneticCardScanned);
 static WcharWrapper s_magneticCardEncryptedScanned(g_magneticCardEncryptedScanned);
 static WcharWrapper s_classNameLineoProDriver(g_ClassLineaProDriver);
     
-    
+static const wchar_t g_bluePad50OnConnectionStatusChange[] = L"BluePad50OnConnectionStatusChange";
+static const wchar_t g_bluePad50OnTransactionFinish[] = L"BluePad50OnTransactionFinish";
+static const wchar_t g_bluePad50OnReverseRequestFinish[] = L"BluePad50OnReverseRequestFinish";
+static const wchar_t g_ClassBluePad50Driver[] = L"BluePad50Driver";
+
+static WcharWrapper s_bluePad50OnConnectionStatusChange(g_bluePad50OnConnectionStatusChange);
+static WcharWrapper s_bluePad50OnTransactionFinish(g_bluePad50OnTransactionFinish);
+static WcharWrapper s_bluePad50OnReverseRequestFinish(g_bluePad50OnReverseRequestFinish);
+static WcharWrapper s_classNameBluePad50Driver(g_ClassBluePad50Driver);
     
 
 #if defined(__APPLE__) 
@@ -57,6 +62,7 @@ static WcharWrapper s_classNameLineoProDriver(g_ClassLineaProDriver);
 
     class ExellioDriverHelper;
     class LineaProDriverHelper;
+    class BluePad50DriverHelper;
     
 #endif //!__OBJC__
     
@@ -93,12 +99,17 @@ static WcharWrapper s_classNameLineoProDriver(g_ClassLineaProDriver);
         void turnOnLineaProCharging();
         void turnOffLineaProCharging();
         
+        void BluePad50Connect();
+        void BluePad50StartTransaction(tVariant amount, tVariant purpose, tVariant token);
+        void BluePad50ReverseRequest(tVariant transactionId, tVariant serialNumber, tVariant token);
+        
         void setIConnect(IAddInDefBaseEx* piConnect);
         
     private:
         IAddInDefBaseEx*    m_iCnt;
         ExellioDriverHelper *exellioDriverHelper;
         LineaProDriverHelper *lineaProDriverHelper;
+        BluePad50DriverHelper *bluePad50DriverHelper;
     };
     
 #if defined(__APPLE__) && !defined(BUILD_DYNAMIC_LIBRARY)

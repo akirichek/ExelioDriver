@@ -39,6 +39,9 @@ public:
         eMethGetLineaProCharging,
         eMethTurnOnLineaProCharging,
         eMethTurnOffLineaProCharging,
+        eMethBluePad50Connect,
+        eMethBluePad50StartTransaction,
+        eMethBluePad50ReverseRequest,
         eMethLast      // Always last
     };
 
