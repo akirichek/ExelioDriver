@@ -48,11 +48,13 @@ static WcharWrapper s_classNameLineoProDriver(g_ClassLineaProDriver);
 static const wchar_t g_bluePad50OnConnectionStatusChange[] = L"BluePad50OnConnectionStatusChange";
 static const wchar_t g_bluePad50OnTransactionFinish[] = L"BluePad50OnTransactionFinish";
 static const wchar_t g_bluePad50OnReverseRequestFinish[] = L"BluePad50OnReverseRequestFinish";
+static const wchar_t g_bluePad50OnConnectedDeviceInfo[] = L"BluePad50OnConnectedDeviceInfo";
 static const wchar_t g_ClassBluePad50Driver[] = L"BluePad50Driver";
 
 static WcharWrapper s_bluePad50OnConnectionStatusChange(g_bluePad50OnConnectionStatusChange);
 static WcharWrapper s_bluePad50OnTransactionFinish(g_bluePad50OnTransactionFinish);
 static WcharWrapper s_bluePad50OnReverseRequestFinish(g_bluePad50OnReverseRequestFinish);
+static WcharWrapper s_bluePad50OnConnectedDeviceInfo(g_bluePad50OnConnectedDeviceInfo);
 static WcharWrapper s_classNameBluePad50Driver(g_ClassBluePad50Driver);
     
 

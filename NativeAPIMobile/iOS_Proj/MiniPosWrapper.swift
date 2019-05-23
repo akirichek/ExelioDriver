@@ -116,6 +116,9 @@ class MiniPosWrapper: NSObject, PBPinPadDelegate {
         debugPrint(">> Model: \(model)")
         // проверка привязки терминала к пользователю
         //bind()
+        
+        let deviceInfo = ["name": name, "serialNumber": serialNumber, "model": model]
+        delegate?.miniPosWrapperConnectedDeviceInfo(deviceInfo)
     }
 }
 
@@ -131,4 +134,6 @@ protocol MiniPosWrapperDelegate: NSObjectProtocol {
     func miniPosWrapperReverseRequestFailureWithErrorCode(_ errorCode: Int)
     
     func miniPosWrapperDeviceConnectionState(_ state: Int32)
+    
+    func miniPosWrapperConnectedDeviceInfo(_ deviceInfo: Any)
 }

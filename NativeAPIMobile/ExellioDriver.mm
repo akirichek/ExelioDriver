@@ -703,6 +703,24 @@ void CExellioDriver::turnOffLineaProCharging()
     delete[] g_paramReason;
 }
 
+- (void)miniPosWrapperConnectedDeviceInfo:(id _Nonnull)deviceInfo {
+    NSLog(@"%s %@", __PRETTY_FUNCTION__, deviceInfo);
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:deviceInfo
+                                                       options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    wchar_t *g_paramJSON = [Utils wcharFromNSString:jsonString];
+    WCHAR_T *s_paramJSON = 0;
+    convToShortWchar(&s_paramJSON, g_paramJSON);
+    
+    if (m_iConn) {
+        m_iConn->ExternalEvent(s_classNameBluePad50Driver, s_bluePad50OnConnectedDeviceInfo, s_paramJSON);
+    }
+    
+    delete[] s_paramJSON;
+    delete[] g_paramJSON;
+}
+
+
 
 @end
 
